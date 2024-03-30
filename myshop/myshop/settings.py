@@ -11,9 +11,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-import os
-
-from dotenv import load_dotenv
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -139,6 +136,6 @@ CART_SESSION_ID = "cart"
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-STRIPE_PUBLISHABLE_KEY = os.environ.get("STRIPE_PUBLISHABLE_KEY ")
-STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY ")
+STRIPE_PUBLISHABLE_KEY = "pk_test_51P062d007aleRocz90M28PwuzGT484vYhLRR1KPCzU1MjXhRuSVDTBHlEFh2Kjo368HX6BnyoIXX4bmNZmCdtBtQ00XM7udrZS"
+STRIPE_SECRET_KEY = "sk_test_51P062d007aleRoczgVBNe2lMMS9XUKNXiSBPhOmAeNa03MpuLmxMBmDc7VkV8ChyEcLaseP9lszrxyIfzs8HdyUQ003QNhKhMV"
 STRIPE_API_VERSION = "2022-08-01"
