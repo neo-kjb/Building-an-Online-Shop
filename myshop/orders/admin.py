@@ -23,6 +23,14 @@ class OrderItemInline(admin.TabularInline):
     raw_id_fields = ["product"]
 
 
+def order_pdf(obj):
+    url = reverse("orders:admin_order_pdf", args=[obj.id])
+    return mark_safe(f'<a href="{url}">PDF</a>')
+
+
+order_pdf.short_description = "Invoice"
+
+
 def export_to_csv(modeladmin, request, queryset):
     opts = modeladmin.model._meta
     content_disposition = f"attachment; filename={opts.verbose_name}.csv"
@@ -73,6 +81,7 @@ class OrderAdmin(admin.ModelAdmin):
         "created",
         "updated",
         order_detail,
+        order_pdf,
     ]
     list_filter = ["paid", "created", "updated"]
     inlines = [OrderItemInline]
